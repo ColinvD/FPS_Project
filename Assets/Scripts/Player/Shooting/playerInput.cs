@@ -5,7 +5,10 @@ using UnityEngine;
 // krijgt input van het spel
 public class playerInput : MonoBehaviour
 {
-    
+    // [SerializeField]
+    //  private Pistol _pistol;
+   
+
     private PlayerShoot _PlayerShoot;
 
     float xInput;
@@ -14,18 +17,8 @@ public class playerInput : MonoBehaviour
     {
         _PlayerShoot = GetComponent<PlayerShoot>();
     }
-
-
-
-    void Update()
-    {
-       
-        if (Input.GetMouseButton(0))
-        {
-            _PlayerShoot.Shoot();
-        }
-        
-    }
-
-    
 }
+
+
+
+   

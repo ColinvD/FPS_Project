@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField]
+    private int _BulletsInClip;
+    [SerializeField]
+    private int _clipSize;
+    [SerializeField]
     private GameObject _projectile;
 
     [SerializeField]
@@ -13,14 +17,37 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     private float _fireRate;
 
-    private float _nextFireTime;
+    public float _nextFireTime;
+     void Update()
+    {
+        if (_BulletsInClip > 0)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
 
+                print("*bang*");
+            }
+        }
+        else
+        {
+            print("out of bullets");
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _BulletsInClip = _clipSize;
+            print("reload");
+        }
+    }
     public void Shoot()
     {
         if (Time.time >= _nextFireTime)
         {
             Instantiate(_projectile, _Spawnpoint.position, _Spawnpoint.rotation);
             _nextFireTime = Time.time + _fireRate;
+            _BulletsInClip--;
         }
     }
 }
