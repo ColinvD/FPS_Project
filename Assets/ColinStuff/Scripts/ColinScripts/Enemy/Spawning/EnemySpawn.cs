@@ -7,8 +7,8 @@ public class EnemySpawn : MonoBehaviour {
     [SerializeField]
     private GameObject Enemy;
     private GameObject[,] Grid;
-    private int Lengte = 15;
-    private int Hoogte = 15;
+    private int Lengte = 19;
+    private int Hoogte = 19;
     private float SpawnTime = 0.5f;
     private float NextEnemy;
 
@@ -27,8 +27,8 @@ public class EnemySpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        int Number1 = Random.Range(0, 15);
-        int Number2 = Random.Range(0, 15);
+        int Number1 = Random.Range(0, 19);
+        int Number2 = Random.Range(0, 19);
         Vector3 position = new Vector3(Grid[Number1, Number2].gameObject.transform.position.x, 1, Grid[Number1, Number2].gameObject.transform.position.z);
         if (Time.time > NextEnemy)
         {
