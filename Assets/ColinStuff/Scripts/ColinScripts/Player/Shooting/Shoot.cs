@@ -17,11 +17,6 @@ public class Shoot : MonoBehaviour {
 
     void Update()
     {
-        /*if (InputManager.LeftMouseButton())
-        {
-            Shooting();
-        }*/
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weapon = 1;
@@ -38,7 +33,7 @@ public class Shoot : MonoBehaviour {
             }
         } else if(weapon == 2)
         {
-            if (InputManager.LeftMouseButton())
+            if (Input.GetMouseButton(0))
             {
                 Shooting();
             }
