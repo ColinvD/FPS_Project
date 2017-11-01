@@ -1,4 +1,7 @@
 sceneSetups:
-- path: Assets/Scenes/CGame.unity
+- path: Assets/Scenes/UI testing.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/Scenes/CGame.unity
+  isLoaded: 0
+  isActive: 0
