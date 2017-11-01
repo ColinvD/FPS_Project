@@ -37,3 +37,8 @@ public class TimerCountDown : MonoBehaviour {
         TimeText.text = "Time: " + CurrentTime;
     }
 }
+
+
+/*
+ * text aanpassen in ander script
+ */
