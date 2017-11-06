@@ -17,6 +17,10 @@ public class TimerText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timeText.text = "Time: " + countdown.currentTime;
+        int minutes = countdown.currentTime / 60;
+        int seconds = countdown.currentTime - minutes * 60;
+
+
+        timeText.text =  minutes + ":" + seconds/*countdown.currentTime.ToString()*/;
     }
 }

@@ -11,7 +11,7 @@ public class KillsAmount : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        killsText.text = "Kills: " + kills;
+        killsText.text = kills.ToString();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,6 @@ public class KillsAmount : MonoBehaviour {
     public void AddKills ()
     {
         kills++;
-        killsText.text = "Kills: " + kills;
+        killsText.text = kills.ToString();
     }
 }
