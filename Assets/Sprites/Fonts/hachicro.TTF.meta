@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 40fc4e71d487473409617267f71a444d
+timeCreated: 1509707591
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hachicro
+  fontNames:
+  - Hachicro
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
