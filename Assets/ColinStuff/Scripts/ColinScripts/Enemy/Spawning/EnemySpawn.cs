@@ -5,22 +5,22 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour {
 
     [SerializeField]
-    private GameObject Enemy;
-    private GameObject[,] Grid;
-    private int Lengte = 19;
-    private int Hoogte = 19;
-    private float SpawnTime = 0.5f;
-    private float NextEnemy;
+    private GameObject enemy;
+    private GameObject[,] grid;
+    private int lengte = 19;
+    private int hoogte = 19;
+    private float spawnTime = 0.5f;
+    private float nextEnemy;
 
 	// Use this for initialization
 	void Start () {
-        Grid = new GameObject[Lengte, Hoogte];
-        for (int i = 0; i < Lengte; i++)
+        grid = new GameObject[lengte, hoogte];
+        for (int i = 0; i < lengte; i++)
         {
-            for (int j = 0; j < Hoogte; j++)
+            for (int j = 0; j < hoogte; j++)
             {
-                Grid[i, j] = new GameObject("plek" + i + " , " + j);
-                Grid[i, j].gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + i * 4, this.gameObject.transform.position.y, this.gameObject.transform.position.z + j * 4);
+                grid[i, j] = new GameObject("plek" + i + " , " + j);
+                grid[i, j].gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + i * 4, this.gameObject.transform.position.y, this.gameObject.transform.position.z + j * 4);
             }
         }
 	}
@@ -29,11 +29,11 @@ public class EnemySpawn : MonoBehaviour {
 	void Update () {
         int Number1 = Random.Range(0, 19);
         int Number2 = Random.Range(0, 19);
-        Vector3 position = new Vector3(Grid[Number1, Number2].gameObject.transform.position.x, 1, Grid[Number1, Number2].gameObject.transform.position.z);
-        if (Time.time > NextEnemy)
+        Vector3 position = new Vector3(grid[Number1, Number2].gameObject.transform.position.x, 1, grid[Number1, Number2].gameObject.transform.position.z);
+        if (Time.time > nextEnemy)
         {
-            NextEnemy = Time.time + SpawnTime;
-            Instantiate(Enemy, position, this.gameObject.transform.rotation);
+            nextEnemy = Time.time + spawnTime;
+            Instantiate(enemy, position, this.gameObject.transform.rotation);
         }
 	}
 }

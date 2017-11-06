@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class KillsAmount : MonoBehaviour {
 
     [SerializeField]
-    private Text KillsText;
-    private int Kills = 0;
+    private Text killsText;
+    private int kills = 0;
 
     // Use this for initialization
     void Start () {
-        KillsText.text = "Kills: " + Kills;
+        killsText.text = "Kills: " + kills;
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class KillsAmount : MonoBehaviour {
 
     public void AddKills ()
     {
-        Kills++;
-        KillsText.text = "Kills: " + Kills;
+        kills++;
+        killsText.text = "Kills: " + kills;
     }
 }

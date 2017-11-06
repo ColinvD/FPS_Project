@@ -5,21 +5,21 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     public float health = 100f;
-    private int MaxTime = 5;
-    private int CurrentTime;
+    private int maxTime = 5;
+    private int currentTime;
     private int minute = 60;
     private float second;
 
     void Start()
     {
-        CurrentTime = MaxTime;
+        currentTime = maxTime;
     }
 
     void FixedUpdate()
     {
         if (second >= minute)
         {
-            CurrentTime -= 1;
+            currentTime -= 1;
             second = 0;
         }
         else
@@ -30,10 +30,10 @@ public class PlayerHealth : MonoBehaviour {
 
     public void LoseHealth(float amount)
     {
-        if (CurrentTime <= 0)
+        if (currentTime <= 0)
         {
             health -= amount;
-            CurrentTime = MaxTime;
+            currentTime = maxTime;
         }
     }
 

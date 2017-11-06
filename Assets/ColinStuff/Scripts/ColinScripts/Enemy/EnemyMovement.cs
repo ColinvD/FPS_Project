@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    private Transform PlayerTransform;
+    private Transform playerTransform;
 
 	// Use this for initialization
 	void Start () {
-        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (!playerTransform)
+        {
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
+                playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+        }
         Vector3 movement = new Vector3();
-        this.gameObject.transform.LookAt(PlayerTransform);
+        this.gameObject.transform.LookAt(playerTransform);
+        gameObject.transform.rotation = new Quaternion(0, this.gameObject.transform.rotation.y, 0, this.gameObject.transform.rotation.w);
         movement = this.transform.forward;
         this.transform.position += (movement * 2 * Time.deltaTime);
-        //this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 25);
     }
 }

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class AmmoAmount : MonoBehaviour {
 
     [SerializeField]
-    private Text AmmoText;
-    private int Ammo = 5;
+    private Text ammoText;
+    private int ammo = 5;
 
     // Use this for initialization
     void Start () {
-        AmmoText.text = "Ammo: " + Ammo;
+        ammoText.text = "Ammo: " + ammo;
 	}
 	
 	// Update is called once per frame

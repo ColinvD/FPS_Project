@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LivesAmount : MonoBehaviour {
 
     [SerializeField]
-    private Text LivesText;
+    private Text livesText;
     private PlayerHealth live;
 
     // Use this for initialization
@@ -16,6 +16,6 @@ public class LivesAmount : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        LivesText.text = "Lives: " + live.health;
+        livesText.text = "Lives: " + live.health;
     }
 }

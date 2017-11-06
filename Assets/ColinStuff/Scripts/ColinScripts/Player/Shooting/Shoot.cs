@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour {
     
-    private InputManager InputManager;
+    private InputManager inputManager;
     private int weapon = 1;
 
     void Start()
     {
-        if (!(InputManager = GetComponent<InputManager>()))
+        if (!(inputManager = GetComponent<InputManager>()))
         {
-            InputManager = gameObject.AddComponent<InputManager>();
+            inputManager = gameObject.AddComponent<InputManager>();
         }
     }
 
