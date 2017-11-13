@@ -19,6 +19,11 @@ public class KillsAmount : MonoBehaviour {
 		
 	}
 
+    public int getKills()
+    {
+        return kills;
+    }
+
     public void AddKills ()
     {
         kills++;
