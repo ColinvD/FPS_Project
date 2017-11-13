@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour {
     
-    private InputManager InputManager;
+    private InputManager inputManager;
     private int weapon = 1;
 
     void Start()
     {
-        if (!(InputManager = this.GetComponent<InputManager>()))
+        if (!(inputManager = GetComponent<InputManager>()))
         {
-            InputManager = this.gameObject.AddComponent<InputManager>();
+            inputManager = gameObject.AddComponent<InputManager>();
         }
     }
 
@@ -42,13 +42,13 @@ public class Shoot : MonoBehaviour {
 
     public void Shooting()
     {
-        Ray ray = new Ray(this.transform.position, this.transform.forward);
+        Camera maincamera = FindObjectOfType<Camera>();
+        Ray ray = new Ray(transform.position, maincamera.transform.forward);
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * 50, Color.green);
-
-        if(Physics.Raycast(ray, out hit, 50f) /*&& InputManager.LeftMouseButton()*/)
+        
+        if(Physics.Raycast(ray, out hit, 50f))
         {
-            //Debug.Log(hit.collider.gameObject.GetComponentInParent<GameObject>().tag);
             if(hit.collider.gameObject.tag == "Enemy")
             {
                 hit.collider.GetComponent<EnemyHealth>().LoseLife();

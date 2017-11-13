@@ -6,16 +6,16 @@ public class EnemyHealth : MonoBehaviour {
 
     [SerializeField]
     private KillsAmount currentKills;
-    private int Lives;
+    private int lives;
 	// Use this for initialization
 	void Start () {
-        Lives = 3;
+        lives = 3;
         currentKills = GameObject.FindGameObjectWithTag("GameManager").GetComponent<KillsAmount>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Lives <= 0)
+		if (lives <= 0)
         {
             currentKills.AddKills();
             Destroy(this.gameObject);
@@ -24,6 +24,6 @@ public class EnemyHealth : MonoBehaviour {
 
     public void LoseLife ()
     {
-        Lives--;
+        lives--;
     }
 }

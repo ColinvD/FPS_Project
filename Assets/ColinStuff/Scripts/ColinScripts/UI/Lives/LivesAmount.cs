@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class LivesAmount : MonoBehaviour {
 
     [SerializeField]
-    private Text LivesText;
-    private int Lives = 3;
+    private Text livesText;
+    private PlayerHealth live;
 
     // Use this for initialization
     void Start () {
-        LivesText.text = "Lives: " + Lives;
+        live = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        livesText.text = live.health.ToString();
+    }
 }
