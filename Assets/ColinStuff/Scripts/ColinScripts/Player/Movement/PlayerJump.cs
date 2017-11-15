@@ -29,14 +29,13 @@ public class PlayerJump : MonoBehaviour {
         if(Input.GetButtonDown(Strings.Movement.JUMP) && isGrounded)
         {
             StartCoroutine("Jumping", 100);
-            Debug.Log("jump");
         }
     }
 
     private IEnumerator Jumping()
     {
-        float jumpSpeed = 6 * (this.transform.localScale.y/5);
-        float maxHeight = 2 + this.transform.position.y * this.transform.localScale.y;
+        float jumpSpeed = 6 /* (this.transform.localScale.y/5)*/;
+        float maxHeight = 2 /*+ this.transform.position.y * this.transform.localScale.y*/;
         while(Input.GetButton(Strings.Movement.JUMP) && this.transform.position.y < maxHeight)
         {
             this.GetComponent<Rigidbody>().velocity = new Vector3(0, jumpSpeed, 0);

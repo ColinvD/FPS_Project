@@ -22,8 +22,8 @@ public class EnemyHealth : MonoBehaviour {
         }
 	}
 
-    public void LoseLife ()
+    public void LoseLife (int amount)
     {
-        lives--;
+        lives -= amount;
     }
 }
