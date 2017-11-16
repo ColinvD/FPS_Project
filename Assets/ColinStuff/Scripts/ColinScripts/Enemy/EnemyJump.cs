@@ -22,7 +22,6 @@ public class EnemyJump : MonoBehaviour {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
-            Debug.Log("i'm going to jump");
             Jump();
         }
     }
@@ -32,13 +31,11 @@ public class EnemyJump : MonoBehaviour {
         float jumpSpeed = 6;
         float maxHeight = 3;
         bool jumpNow = true;
-        //Debug.Log(jumpSpeed + maxHeight);
         while (jumpNow && this.transform.position.y < maxHeight)
         {
             this.GetComponent<Rigidbody>().velocity = new Vector3(0, jumpSpeed, 0);
             jumpSpeed -= 0.06f;
             jumpNow = false;
-            Debug.Log(jumpSpeed + "" + maxHeight);
         }
     }
 }

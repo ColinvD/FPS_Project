@@ -1,1 +1,16 @@
+<<<<<<< HEAD
 sceneSetups: []
+=======
+sceneSetups:
+<<<<<<< HEAD
+- path: Assets/Scenes/TheOfficialGame.unity
+=======
+<<<<<<< HEAD
+- path: Assets/Scenes/UI testing.unity
+=======
+- path: Assets/Scenes/CGame.unity
+>>>>>>> 6c22c7ae2b601fd97b87b617e2f54497c01400ad
+>>>>>>> 45276e8b529fc9bd8139de346b2ef16633acdaab
+  isLoaded: 1
+  isActive: 1
+>>>>>>> f1cb5cb92efa41f5c6c2ff0ddc69354baae5db05
