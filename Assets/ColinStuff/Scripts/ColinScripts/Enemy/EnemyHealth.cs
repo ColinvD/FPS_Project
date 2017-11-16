@@ -12,9 +12,15 @@ public class EnemyHealth : MonoBehaviour {
         lives = 3;
         currentKills = GameObject.FindGameObjectWithTag("GameManager").GetComponent<KillsAmount>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            lives = 0;
+        }
+    }
+    // Update is called once per frame
+    void Update () {
 		if (lives <= 0)
         {
             currentKills.AddKills();
