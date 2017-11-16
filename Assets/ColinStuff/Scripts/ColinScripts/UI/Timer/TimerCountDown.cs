@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TimerCountDown : MonoBehaviour {
-    
+
+    private VariableData data;
     public int currentTime;
-    private int maxTime = 300;
+    private int maxTime;
     private int minute = 60;
     private float second;
 	// Use this for initialization
 	void Start () {
+        data = FindObjectOfType<VariableData>();
+        maxTime = data.GetMaxTimeDuration();
         currentTime = maxTime;
 	}
 	

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseSettings : MonoBehaviour {
-
+    
 	// Use this for initialization
 	void Start () {
         Cursor.visible = false;

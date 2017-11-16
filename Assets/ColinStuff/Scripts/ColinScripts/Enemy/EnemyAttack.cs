@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
-    
-	// Update is called once per frame
-	void Update () {
+
+    private VariableData data;
+
+    void Start()
+    {
+        data = FindObjectOfType<VariableData>();
+    }
+
+    // Update is called once per frame
+    void Update () {
         Ray ray = new Ray(this.transform.position, this.transform.forward);
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction, Color.red);
@@ -14,7 +21,7 @@ public class EnemyAttack : MonoBehaviour {
         {
             if (hit.collider.gameObject.tag == "Player")
             {
-                hit.collider.GetComponent<PlayerHealth>().LoseHealth(5);
+                hit.collider.GetComponent<PlayerHealth>().LoseHealth(data.GetEnemyDamage());
             }
         }
     }

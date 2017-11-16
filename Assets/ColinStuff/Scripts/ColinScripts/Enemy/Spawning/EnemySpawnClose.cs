@@ -12,9 +12,11 @@ public class EnemySpawnClose : MonoBehaviour {
     private GameObject[] enemySpawn;
     public List<Transform> enemySpawnTransform;
     private Transform closest;
+    private VariableData data;
 
     // Use this for initialization
     void Start () {
+        data = FindObjectOfType<VariableData>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         enemySpawn = GameObject.FindGameObjectsWithTag("SpawnPoints");
         for(int i = 0; i < enemySpawn.Length; i++)
@@ -26,7 +28,7 @@ public class EnemySpawnClose : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if (Time.time > nextEnemy)
+        if (Time.time > nextEnemy && GameObject.FindGameObjectsWithTag("Enemy").Length < data.GetEnemyLimit())
         {
             closest = GetClosestSpawnpointToPlayer();
             nextEnemy = Time.time + spawnTime;

@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
 
     private Transform playerTransform;
+    private VariableData data;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
+        data = FindObjectOfType<VariableData>();
     }
 	
 	// Update is called once per frame
@@ -25,6 +26,6 @@ public class EnemyMovement : MonoBehaviour {
         this.gameObject.transform.LookAt(playerTransform);
         gameObject.transform.rotation = new Quaternion(0, this.gameObject.transform.rotation.y, 0, this.gameObject.transform.rotation.w);
         movement = this.transform.forward;
-        this.transform.position += (movement * 2 * Time.deltaTime);
+        this.transform.position += (movement * data.GetEnemySpeed() * Time.deltaTime);
     }
 }
