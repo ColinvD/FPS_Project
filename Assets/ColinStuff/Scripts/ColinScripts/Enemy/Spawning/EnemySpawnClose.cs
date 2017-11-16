@@ -12,9 +12,11 @@ public class EnemySpawnClose : MonoBehaviour {
     private GameObject[] enemySpawn;
     public List<Transform> enemySpawnTransform;
     private Transform closest;
+    private VariableData data;
 
     // Use this for initialization
     void Start () {
+        data = FindObjectOfType<VariableData>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         enemySpawn = GameObject.FindGameObjectsWithTag("SpawnPoints");
         for(int i = 0; i < enemySpawn.Length; i++)
@@ -25,10 +27,8 @@ public class EnemySpawnClose : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         
-        
-        if (Time.time > nextEnemy)
+        if (Time.time > nextEnemy && GameObject.FindGameObjectsWithTag("Enemy").Length < data.GetEnemyLimit())
         {
             closest = GetClosestSpawnpointToPlayer();
             nextEnemy = Time.time + spawnTime;
@@ -42,26 +42,7 @@ public class EnemySpawnClose : MonoBehaviour {
         float smallestDistance = float.MaxValue;
 
         for (int i = 0; i < enemySpawnTransform.Count; i++)
-        {/*
-            if (closestPoint == null)
-            {
-                closestPoint = enemySpawnTransform[i];
-            }
-            else if (enemySpawnTransform[i].position.x - playerPosition.position.x < closest.position.x - playerPosition.position.x)
-            {
-
-                Debug.Log(enemySpawnTransform[i].position.x - playerPosition.position.x);
-                Debug.Log(closest.position.x - playerPosition.position.x);
-                if (enemySpawnTransform[i].position.z - playerPosition.position.z < closest.position.z - playerPosition.position.z)
-                {
-                    closest = enemySpawnTransform[i];
-                    Debug.Log(enemySpawnTransform[i].position.x - playerPosition.position.x);
-                    Debug.Log(closest.position.x - playerPosition.position.x);
-                    Debug.Log(enemySpawnTransform[i].position.z - playerPosition.position.z);
-                    Debug.Log(closest.position.z - playerPosition.position.z);
-                }
-            }*/
-
+        {
             if (Vector3.Distance(enemySpawnTransform[i].position, playerPosition.position) < smallestDistance)
             {
                 closestPoint = enemySpawnTransform[i];

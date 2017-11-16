@@ -29,7 +29,7 @@ public class EnemyJump : MonoBehaviour {
     private void Jump()
     {
         float jumpSpeed = 6;
-        float maxHeight = 3;
+        float maxHeight = 3 + this.transform.position.y;
         bool jumpNow = true;
         while (jumpNow && this.transform.position.y < maxHeight)
         {

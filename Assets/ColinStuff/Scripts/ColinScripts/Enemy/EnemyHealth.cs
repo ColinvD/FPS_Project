@@ -6,24 +6,35 @@ public class EnemyHealth : MonoBehaviour {
 
     [SerializeField]
     private KillsAmount currentKills;
+    private VariableData data;
     private int lives;
 	// Use this for initialization
 	void Start () {
-        lives = 3;
+        
         currentKills = GameObject.FindGameObjectWithTag("GameManager").GetComponent<KillsAmount>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (lives <= 0)
+        data = FindObjectOfType<VariableData>();
+        lives = data.GetEnemyHealth();
+    }
+
+    public void LoseLife(int amount, string byWhat)
+    {
+        lives -= amount;
+        if (lives <= 0 && byWhat == "Poison")
+        {
+            Destroy(this.gameObject);
+        }
+        else if (lives <= 0 && byWhat == "Player")
         {
             currentKills.AddKills();
             Destroy(this.gameObject);
         }
-	}
+    }
 
-    public void LoseLife (int amount)
+    private void OnCollisionEnter(Collision collision)
     {
-        lives -= amount;
+        if (collision.gameObject.tag == "Bullet")
+        {
+            lives = 0;
+        }
     }
 }

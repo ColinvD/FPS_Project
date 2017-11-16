@@ -5,22 +5,19 @@ using UnityEngine;
 public class HealthPackPickup : MonoBehaviour {
 
     private PlayerHealth lives;
+    private VariableData data;
 
 	// Use this for initialization
 	void Start () {
         lives = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        data = FindObjectOfType<VariableData>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
+
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "HealthPack")
         {
-            lives.GainHealth(30f);
+            lives.GainHealth(data.GetHealthContainer());
             Destroy(other.gameObject);
         }
     }

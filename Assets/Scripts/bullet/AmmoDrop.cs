@@ -15,7 +15,7 @@ public class AmmoDrop : MonoBehaviour {
     {
         if (other.gameObject.tag == "Ammo")
         {
-            shots.GainAmmo();    
+            //shots.GainAmmo();    
             Destroy(other.gameObject);
         }
     }

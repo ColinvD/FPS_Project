@@ -4,54 +4,49 @@ using UnityEngine;
 
 public class RaiseLair : MonoBehaviour {
 
-	private Transform PoisenLair;
+	private Rigidbody PoisenLair;
 	private Vector3 newPosition;
 	private float newYPos;
 	private float second;
-	private int currentTime;
+	public int currentTime;
 	private int fivesecond = 0;
 	private int maxTime = 40;
 	private int minute = 60;
 	private bool active;
 
 	void Start(){
-		PoisenLair = GetComponent<Transform> ();
+		PoisenLair = GetComponent<Rigidbody> ();
 		currentTime = maxTime;
-
 	}
 
 
 	void FixedUpdate () {
-		if (Input.GetKeyDown (KeyCode.H)) {
-			Debug.Log ("hallo");
-			Move ();
-		}
 		if (active) {
+            Debug.Log("moving");
 			if (second >= minute) {
-				newYPos = PoisenLair.position.y + 1;
-				newPosition = new Vector3 (0, newYPos, 0);
-				PoisenLair.position = newPosition;
+				newYPos = 3;
+				PoisenLair.velocity = new Vector3(0, newYPos, 0);
 				currentTime -= 1;
 				second = 0;
 			} else {
 				second += Time.fixedDeltaTime * 180;
-			}
-			Debug.Log (currentTime);
+			}/*
 			if (currentTime <= 0) {
 				active = false;
-			}
+			}*/
 		}
 	}
 
-	void Reset(){
-		newYPos = -20;
-		newPosition = new Vector3 (0, newYPos, 0);
-		PoisenLair.position = newPosition;
+	public void Reset(){
+        PoisenLair.velocity = new Vector3(0, 0, 0);
+        newYPos = -20;
+		PoisenLair.position = new Vector3(0, newYPos, 0);
+        currentTime = maxTime;
 		active = false;
 	}
 
-	void Move(){
-		Debug.Log ("balletjes");
+	public void Move(){
 		active = true;
+        Debug.Log("start");
 	}
 }

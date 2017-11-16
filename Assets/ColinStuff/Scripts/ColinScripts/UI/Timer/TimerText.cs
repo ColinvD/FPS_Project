@@ -21,6 +21,6 @@ public class TimerText : MonoBehaviour {
         int seconds = countdown.currentTime - minutes * 60;
 
 
-        timeText.text =  minutes + ":" + seconds/*countdown.currentTime.ToString()*/;
+        timeText.text =  minutes + ":" + seconds;
     }
 }
