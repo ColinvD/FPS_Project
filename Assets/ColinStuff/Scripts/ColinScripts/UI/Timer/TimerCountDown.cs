@@ -24,11 +24,5 @@ public class TimerCountDown : MonoBehaviour {
         {
             second += Time.fixedDeltaTime * 60;
         }
-        
-        if(currentTime <= 0)
-        {
-            currentTime = maxTime;
-            Debug.Log("golf");
-        }
     }
 }

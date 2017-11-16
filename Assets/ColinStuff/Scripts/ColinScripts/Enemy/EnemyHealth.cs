@@ -12,18 +12,17 @@ public class EnemyHealth : MonoBehaviour {
         lives = 3;
         currentKills = GameObject.FindGameObjectWithTag("GameManager").GetComponent<KillsAmount>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (lives <= 0)
+
+    public void LoseLife (int amount, string byWhat)
+    {
+        lives -= amount;
+        if(lives <= 0 && byWhat == "Poison")
+        {
+            Destroy(this.gameObject);
+        } else if (lives <= 0 && byWhat == "Player")
         {
             currentKills.AddKills();
             Destroy(this.gameObject);
         }
-	}
-
-    public void LoseLife (int amount)
-    {
-        lives -= amount;
     }
 }

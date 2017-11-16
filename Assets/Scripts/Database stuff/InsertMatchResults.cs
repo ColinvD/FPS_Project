@@ -17,7 +17,7 @@ public class InsertMatchResults : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
+	}/*
     void SetValues()
     {
         score = ;
@@ -27,5 +27,5 @@ public class InsertMatchResults : MonoBehaviour {
         healed = ;
         player_id = ;
 
-    }
+    }*/
 }

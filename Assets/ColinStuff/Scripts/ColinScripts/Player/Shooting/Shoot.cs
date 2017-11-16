@@ -51,7 +51,7 @@ public class Shoot : MonoBehaviour {
         {
             if(hit.collider.gameObject.tag == "Enemy")
             {
-                hit.collider.GetComponent<EnemyHealth>().LoseLife(1);
+                hit.collider.GetComponent<EnemyHealth>().LoseLife(1, "Player");
             }
         }
     }

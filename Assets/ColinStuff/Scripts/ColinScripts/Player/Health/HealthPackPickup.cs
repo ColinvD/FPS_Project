@@ -10,12 +10,7 @@ public class HealthPackPickup : MonoBehaviour {
 	void Start () {
         lives = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
+
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "HealthPack")
