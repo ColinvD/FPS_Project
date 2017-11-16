@@ -8,6 +8,7 @@ public class TimerCountDown : MonoBehaviour {
     private int maxTime = 300;
     private int minute = 60;
     private float second;
+    private int secondsPast = 0;
 	// Use this for initialization
 	void Start () {
         currentTime = maxTime;
@@ -19,10 +20,12 @@ public class TimerCountDown : MonoBehaviour {
         {
             currentTime -= 1;
             second = 0;
+            secondsPast++;
         }
         else
         {
             second += Time.fixedDeltaTime * 60;
+            secondsPast++;
         }
         
         if(currentTime <= 0)
@@ -30,5 +33,10 @@ public class TimerCountDown : MonoBehaviour {
             currentTime = maxTime;
             Debug.Log("golf");
         }
+    }
+
+    public int GetSecondsPast()
+    {
+        return secondsPast;
     }
 }

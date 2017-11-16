@@ -41,5 +41,9 @@ public class KillsAmount : MonoBehaviour {
             Open.Destroy();
             }
         }
+    public int GetKills()
+    {
+        return kills;
+    }
     
 }

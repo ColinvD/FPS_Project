@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour {
     private int minute = 60;
     private float second;
 
+    private int damaged;
+    private int healed;
+
     void Start()
     {
         currentTime = maxTime;
@@ -34,11 +37,14 @@ public class PlayerHealth : MonoBehaviour {
         {
             health -= amount;
             currentTime = maxTime;
+            damaged += (int)amount;
         }
     }
 
     public void GainHealth(float amount)
     {
+        int hp = (int)health;
+
         if(health < 100f)
         {
             health += amount;
@@ -47,5 +53,11 @@ public class PlayerHealth : MonoBehaviour {
         {
             health = 100f;
         }
+
+    }
+
+    public int GetDamaged()
+    {
+        return damaged;
     }
 }

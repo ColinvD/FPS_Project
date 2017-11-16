@@ -9,7 +9,7 @@ public class PhpScript : MonoBehaviour {
         StartCoroutine(DoPHP());
 	}
 
-    IEnumerator DoPHP()
+    public IEnumerator DoPHP()
     {
         WWW request = new WWW("http://22950.hosts.ma-cloud.nl/bewijzenmap/unityphp/phpscript.php?pos=[15,224,352]&playerID=25");
         yield return request;
