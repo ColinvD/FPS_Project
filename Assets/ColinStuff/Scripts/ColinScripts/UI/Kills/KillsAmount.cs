@@ -31,7 +31,7 @@ public class KillsAmount : MonoBehaviour {
     public void OpenDoor ()
     {
        
-            if (Coins >= 10)
+        if (Coins >= 10)
             {
          
             for (int i = 1; i <= 10; i++)
@@ -41,9 +41,5 @@ public class KillsAmount : MonoBehaviour {
             Open.Destroy();
             }
         }
-    public int GetKills()
-    {
-        return kills;
-    }
     
 }

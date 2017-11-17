@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Door_Open : MonoBehaviour{
     bool Dead = false;
-    [SerializeField] private KillsAmount currentKills;
+    [SerializeField]
+    private Fall doorOpen;
+    [SerializeField]
+    private KillsAmount currentKills;
     
     private void OnCollisionEnter(Collision other)
     {
-
-        print(currentKills);
+       
         if (other.collider.tag == "wall")
         {
             currentKills.OpenDoor();
             if (Dead == true)
             {
-                Destroy(other.gameObject);
+              
+                doorOpen.Falling();
                 Dead = false;
             }
           
@@ -24,6 +27,7 @@ public class Door_Open : MonoBehaviour{
     }
     public void Destroy()
     {
+       
         Dead = true;
     }
 
