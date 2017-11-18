@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour {
-    
+public class Shoot : MonoBehaviour
+{
+    [SerializeField]
+    private int _BulletsInClip;
+    [SerializeField]
+    private int _clipSize;
+   
     private InputManager inputManager;
-    private int weapon = 1;
+   // private int weapon = 1;
 
     void Start()
     {
@@ -17,28 +22,28 @@ public class Shoot : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            weapon = 1;
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            weapon = 2;
-        }
-
-        if(weapon == 1)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Shooting();
-            }
-        } else if(weapon == 2)
+        if (_BulletsInClip > 0)
         {
             if (Input.GetMouseButton(0))
             {
                 Shooting();
+                _BulletsInClip--;
             }
         }
-    }
+        else
+        {
+            print("out of bullets");
+        }
+            
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _BulletsInClip = _clipSize;
+                print("reload");
+            }
+
+
+
+        }
 
     public void Shooting()
     {
@@ -51,7 +56,7 @@ public class Shoot : MonoBehaviour {
         {
             if(hit.collider.gameObject.tag == "Enemy")
             {
-                hit.collider.GetComponent<EnemyHealth>().LoseLife(1, "Player");
+                hit.collider.GetComponent<EnemyHealth>().LoseLife(1);
             }
         }
     }

@@ -19,12 +19,18 @@ public class projectile : MonoBehaviour
 
     void Awake()
     {
-        insert = new InsertShot();
+        
+        insert = gameObject.AddComponent<InsertShot>();
         beginPos = transform.position;
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<SphereCollider>();
         official = GetPositions();
         Destroy(gameObject, 2f);
+
+        if (!(insert = GetComponent<InsertShot>()))
+        {
+            insert = gameObject.AddComponent<InsertShot>();
+        }
     }
 
     void FixedUpdate()
