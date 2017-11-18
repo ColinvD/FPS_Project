@@ -30,7 +30,6 @@ public class PlayerJump : MonoBehaviour {
         {
             StartCoroutine("Jumping", 100);
         }
-        Debug.Log(isGrounded);
     }
 
     private IEnumerator Jumping()

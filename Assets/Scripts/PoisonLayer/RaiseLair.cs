@@ -30,16 +30,13 @@ public class RaiseLair : MonoBehaviour {
 				second = 0;
 			} else {
 				second += Time.fixedDeltaTime * 180;
-			}/*
-			if (currentTime <= 0) {
-				active = false;
-			}*/
+			}
 		}
 	}
 
 	public void Reset(){
         PoisenLair.velocity = new Vector3(0, 0, 0);
-        newYPos = -20;
+        newYPos = -33;
 		PoisenLair.position = new Vector3(0, newYPos, 0);
         currentTime = maxTime;
 		active = false;

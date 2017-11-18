@@ -13,9 +13,9 @@ public class AmmoDrop : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ammo")
+        if (other.gameObject.tag == "AmmoPack")
         {
-            //shots.GainAmmo();    
+            shots.GainAmmo();    
             Destroy(other.gameObject);
         }
     }

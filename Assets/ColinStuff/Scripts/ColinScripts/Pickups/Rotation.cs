@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour {
 
+    [SerializeField]
+    private Vector3 rotation;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,6 @@ public class Rotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(new Vector3(0, 0, 80)*Time.deltaTime);
+        transform.Rotate(new Vector3(rotation.x, rotation.y, rotation.z)*Time.deltaTime);
 	}
 }

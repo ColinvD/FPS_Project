@@ -16,8 +16,15 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField]
     private float _fireRate;
+    private VariableData data;
 
     public float _nextFireTime;
+
+    void Start()
+    {
+        data = FindObjectOfType<VariableData>();
+    }
+
      void Update()
     {
         if (_BulletsInClip > 0)
@@ -49,5 +56,10 @@ public class PlayerShoot : MonoBehaviour
             _nextFireTime = Time.time + _fireRate;
             _BulletsInClip--;
         }
+    }
+
+    public void GainAmmo()
+    {
+        _clipSize += data.GetAmmoContainer();
     }
 }

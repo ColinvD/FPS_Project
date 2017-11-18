@@ -16,6 +16,14 @@ public class EnemyHealth : MonoBehaviour {
         lives = data.GetEnemyHealth();
     }
 
+    void Update()
+    {
+        if(this.transform.position.y < -10)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public void LoseLife(int amount, string byWhat)
     {
         lives -= amount;

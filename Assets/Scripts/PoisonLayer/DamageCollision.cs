@@ -12,7 +12,8 @@ public class DamageCollision : MonoBehaviour {
         if(other.GetComponent<EnemyHealth>())
         {
             other.GetComponent<EnemyHealth>().LoseLife(20, "Poison");
-        } else if (other.GetComponent<PlayerHealth>())
+        }
+        if (other.GetComponent<PlayerHealth>())
         {
             other.GetComponent<PlayerHealth>().LoseHealth(100);
         }

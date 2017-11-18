@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Door_Open : MonoBehaviour{
     bool Dead = false;
+    [SerializeField]
+    private Fall[] doorOpen;
     [SerializeField] private KillsAmount currentKills;
     
+    void Start()
+    {
+        doorOpen = FindObjectsOfType<Fall>();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-
-        print(currentKills);
-        if (other.collider.tag == "wall")
+        if (other.collider.tag == "Wall")
         {
             currentKills.OpenDoor();
             if (Dead == true)
             {
-                Destroy(other.gameObject);
+                for (int i = 0; i < doorOpen.Length; i++)
+                {
+                    doorOpen[i].Falling();
+                }
                 Dead = false;
             }
           
